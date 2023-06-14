@@ -1,0 +1,19 @@
+<form (ngSubmit)="getStoreData()" novalidate [formGroup]="registerForm">
+  <div> <label>FirstName</label><input formControlName="FirstName" type="text" disable=true></div>
+  <div><label>LastName</label><input formControlName="LastName" type="text" disable=true></div>
+  <div><label>Email</label><input formControlName="Email" type="text"></div>
+  <div *ngIf="!registerForm.controls.Email.errors.required">Email is required</div>
+  <div *ngIf="!registerForm.controls.Email.errors.pattern">Email is invalid</div>
+  <div><label>Phone</label><input formControlName="Phone" type="text"></div>
+  <div *ngIf="!registerForm.controls.Phone.errors.required">Phone is required</div>
+
+  <div><label>Address</label><input formControlName="Address" type="text"></div>
+  <div *ngIf="!registerForm.controls.Address.errors.required">Address is required</div>
+  <div><label>Password</label><input formControlName="Password" type="text"></div>
+  <div *ngIf="!registerForm.controls.Password.errors.required">Password is required</div>
+  <div *ngIf="!registerForm.controls.Password.errors.maxLength">
+    <p style="color: red;">Password is not more than 6 Character</p>
+  </div>
+  <div><label>ConfirmPassword</label><input formControlName="ConfirmPassword" type="text"></div>
+  <input type="submit">
+</form>
